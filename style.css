@@ -1,0 +1,12 @@
+.heading{
+    width: 100%;
+    
+}
+
+#bgImg{
+    width: 100%;
+}
+
+#btnStart, #status{
+    font-size: 25px;
+}
