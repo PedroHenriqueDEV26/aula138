@@ -10,3 +10,8 @@
 #btnStart, #status{
     font-size: 25px;
 }
+
+.instructionImage{
+    display: inline-block;
+    width: 60%;
+}
