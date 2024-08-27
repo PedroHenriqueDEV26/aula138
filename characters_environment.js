@@ -52,6 +52,15 @@ var gameConfig={
 /*====================================
 =            Status do Jogo             =
 ====================================*/
+noseX = ""
+noseY = ""
+gameStatus = ""
+
+function startGame(){
+  gameStatus = "start"
+  document.getElementById("status").innerHTML = "O Jogo está carregando..."
+  
+}
 
 function game(){
 
