@@ -17,6 +17,7 @@ function setup() {
 
 	posenet = ml5.poseNet(video, modelLoaded);
 	posenet.on("pose", gotPoses);
+
 }
 
 function modelLoaded(){
@@ -34,6 +35,8 @@ function gotPoses(results){
 function draw() {
 	game()
 	fill("yellow")
+	translate(width, 0)
+	scale(-1, 1)
 	
 }
 

@@ -76,7 +76,7 @@ function game(){
     fill(255, 255, 255);
     textSize(40);
     textAlign(CENTER);
-    text("Pressione qualquer tecla direcional para iniciar o jogo", gameConfig.screenX/2, gameConfig.screenY/2);
+    text("Pressione o botão 'Start' para iniciar o jogo", gameConfig.screenX/2, gameConfig.screenY/2);
     textSize(40);
 
     stroke(255);
@@ -124,7 +124,7 @@ function game(){
 
 // modifique o status do jogo se qualquer tecla for pressionada
 function changeGameStatud(character){
-  if((keyDown(control.up) ||keyDown(control.left)||keyDown(control.right) )&& gameConfig.status==="start") {
+  if(gameStatus == "start"&& noseX != "" && gameConfig.status==="start") {
     world_start.play();
     initializeCharacterStatus(mario);
     gameConfig.status= "play";
@@ -288,19 +288,19 @@ function autoControl(character){
 function manualControl(character){
   
   if(character.live){
-    if(keyDown(control.left)){
+    if(noseX > 300){
       character.velocity.x-=gameConfig.moveSpeed;
       character.changeAnimation('move');
       character.mirrorX(-1);
     }
 
-    if(keyDown(control.right)){
+    if(noseY < 200){
       character.velocity.x+=gameConfig.moveSpeed;
       character.changeAnimation('move');
       character.mirrorX(1);
     }
 
-    if(!keyDown(control.left)&&!keyDown(control.right)&&!keyDown(control.up)){ 
+    if(noseX > 300 && noseX < 300 && !noseY < 300){ 
       character.changeAnimation('stand');
     }
   }
@@ -309,7 +309,7 @@ function manualControl(character){
 
 /* Movimentos do personagem */
 function jumping(character){
-	if( (keyWentDown(control.up)&&character.live) || (touchIsDown&&character.live) ){
+	if( (noseY < 200 &&character.live) || (touchIsDown&&character.live) ){
 		character.velocity.y+=gameConfig.jump;
 	}
 }
